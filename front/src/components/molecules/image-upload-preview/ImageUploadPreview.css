@@ -1,0 +1,113 @@
+.image-upload-preview {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 220px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #280b0f;
+  border: 2px dashed var(--border);
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    background 0.2s,
+    box-shadow 0.2s;
+}
+
+.image-upload-preview:hover {
+  border-color: #c6b39a;
+  background: rgba(141, 58, 60, 0.45);
+}
+
+.image-upload-preview--has-image:hover {
+  border-color: #c6b39a;
+}
+
+.image-upload-preview--dragging {
+  border-color: #c6b39a;
+  background: var(--accent-bg);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+.image-upload-preview--has-image {
+  border-style: solid;
+  cursor: default;
+}
+
+.image-upload-preview__input {
+  display: none;
+}
+
+.image-upload-preview__placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 24px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.image-upload-preview__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  color: #c6b39a;
+  background: #7b694e;
+}
+
+.image-upload-preview__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.image-upload-preview__title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+.image-upload-preview__hint {
+  margin: 0;
+  font-size: 13px;
+  color: #c6b39a;
+  opacity: 0.75;
+}
+
+.image-upload-preview__image {
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  object-fit: contain;
+  display: block;
+}
+
+.image-upload-preview__change {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  background: #280b0f;
+  opacity: 0;
+  transition: opacity 0.2s;
+  cursor: pointer;
+}
+
+.image-upload-preview--has-image:hover .image-upload-preview__change {
+  opacity: 1;
+  background: rgba(141, 58, 60, 0.45);
+}
+
+.image-upload-preview--has-image .image-upload-preview__change:hover {
+  background: rgba(141, 58, 60, 0.6);
+}

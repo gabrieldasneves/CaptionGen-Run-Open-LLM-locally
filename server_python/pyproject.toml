@@ -1,0 +1,13 @@
+[project]
+name = "server-python"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "flask>=3.1.3",
+    "flask-cors>=6.0.5",
+    "optimum>=2.2.0",
+    "scipy>=1.18.0",
+    "transformers>=5.14.1",
+]
