@@ -28,12 +28,12 @@ server_node/ (:3000)          server_python/ (:5001)
 
 ## Stack
 
-| Folder | Tools |
-|--------|-------|
-| `front/` | React, Vite, Hugging Face Transformers |
-| `server_node/` | Node.js, Express, Transformers |
-| `server_python/` | Python, Flask, Transformers, Bark |
-| All backends | Docker |
+| Folder           | Tools                                  |
+| ---------------- | -------------------------------------- |
+| `front/`         | React, Vite, Hugging Face Transformers |
+| `server_node/`   | Node.js, Express, Transformers         |
+| `server_python/` | Python, Flask, Transformers, Bark      |
+| All backends     | Docker                                 |
 
 ## Requirements
 
@@ -50,7 +50,7 @@ From the project root:
 docker compose up --build
 ```
 
-Open http://localhost:5173
+Open [http://localhost:5173](http://localhost:5173)
 
 This starts all 3 services: frontend, translation server, and text-to-speech server.
 
@@ -112,11 +112,11 @@ Returns:
 
 ## Models
 
-| Step | Model | Where |
-|------|-------|-------|
-| Caption | `Xenova/vit-gpt2-image-captioning` | Browser |
-| Translation | `Xenova/nllb-200-distilled-600M` | Node |
-| Speech | `suno/bark-small` | Python |
+| Step        | Model                              | Where   |
+| ----------- | ---------------------------------- | ------- |
+| Caption     | `Xenova/vit-gpt2-image-captioning` | Browser |
+| Translation | `Xenova/nllb-200-distilled-600M`   | Node    |
+| Speech      | `suno/bark-small`                  | Python  |
 
 ## Notes
 
@@ -124,12 +124,3 @@ Returns:
 - Caption runs in the browser
 - Backend URLs are hardcoded for local dev (`localhost:3000`, `localhost:5001`)
 - Captions are in English; translation uses `eng_Latn` as source
-
-## Todo
-
-- [ ] Env vars for backend URLs
-- [ ] Deploy frontend and backends
-
-## License
-
-MIT
