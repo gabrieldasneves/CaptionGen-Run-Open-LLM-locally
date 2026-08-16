@@ -1,16 +1,71 @@
-# React + Vite
+# front
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React app for CaptionGen. Shows the UI, generates image captions in the browser, and calls the backend APIs for translation and audio.
 
-Currently, two official plugins are available:
+Part of [CaptionGen](../README.md).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## What it does
 
-## React Compiler
+- Image input by URL, upload, or drag and drop
+- Caption generation in the browser (no server needed for this step)
+- Language selection
+- Shows caption, translation, and plays audio
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Stack
 
-## Expanding the ESLint configuration
+- React 19
+- Vite
+- `@huggingface/transformers` (WASM)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Model
+
+| Step | Model | Where |
+|------|-------|-------|
+| Caption | `Xenova/vit-gpt2-image-captioning` | Browser |
+
+## Run
+
+From the project root (recommended):
+
+```bash
+docker compose up --build
+```
+
+Open http://localhost:5173
+
+Or run only the frontend:
+
+```bash
+npm install
+npm run dev
+```
+
+The backends must be running on `localhost:3000` and `localhost:5001`. See [server_node](../server_node/README.md) and [server_python](../server_python/README.md).
+
+## Main files
+
+```
+src/
+├── App.jsx                          # Main UI and flow
+├── models/
+│   ├── ImgCaptioner.js              # Browser caption model
+│   └── api.js                       # Calls to backend APIs
+└── components/
+    ├── atoms/
+    └── molecules/
+```
+
+## Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start dev server on port 5173 |
+| `npm run build` | Build for production |
+| `npm run preview` | Preview production build |
+| `npm run lint` | Run ESLint |
+
+## Notes
+
+- Caption model downloads in the browser on first use
+- Backend URLs are hardcoded in `src/models/api.js`
+- CORS on the Node server allows `http://localhost:5173`

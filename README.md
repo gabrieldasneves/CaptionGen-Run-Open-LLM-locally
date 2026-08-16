@@ -76,10 +76,10 @@ First run takes longer while models download.
 ## Project folders
 
 ```
-caption-gen/
-├── front/
-├── server_node/
-├── server_python/
+CaptionGen/
+├── front/           → front/README.md
+├── server_node/     → server_node/README.md
+├── server_python/   → server_python/README.md
 └── README.md
 ```
 
